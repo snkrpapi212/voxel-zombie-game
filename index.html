@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voxel Survival Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.173.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.173.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="canvas"></canvas>
+        <div id="crosshair"></div>
+        <div id="ui-overlay">
+            <div id="top-bar">
+                <div id="health-bar-container">
+                    <div id="health-bar"></div>
+                </div>
+                <div id="hunger-bar-container">
+                    <div id="hunger-bar"></div>
+                </div>
+            </div>
+            <div id="hotbar-container">
+                <div class="hotbar-slot selected" data-slot="0"></div>
+                <div class="hotbar-slot" data-slot="1"></div>
+                <div class="hotbar-slot" data-slot="2"></div>
+                <div class="hotbar-slot" data-slot="3"></div>
+                <div class="hotbar-slot" data-slot="4"></div>
+                <div class="hotbar-slot" data-slot="5"></div>
+                <div class="hotbar-slot" data-slot="6"></div>
+                <div class="hotbar-slot" data-slot="7"></div>
+                <div class="hotbar-slot" data-slot="8"></div>
+            </div>
+        </div>
+        <div id="inventory-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Inventory</h2>
+                <div id="inventory-grid"></div>
+                <hr>
+                <h2>Crafting</h2>
+                <div id="crafting-area">
+                    <div id="crafting-input-grid">
+                        <div class="crafting-slot" data-slot="0"></div>
+                        <div class="crafting-slot" data-slot="1"></div>
+                        <div class="crafting-slot" data-slot="2"></div>
+                        <div class="crafting-slot" data-slot="3"></div>
+                    </div>
+                    <div id="crafting-arrow">➜</div>
+                    <div id="crafting-output-slot" class="crafting-slot"></div>
+                </div>
+                <p class="modal-hint">Press 'E' to close</p>
+            </div>
+        </div>
+        <div id="loading-screen">
+            <h1>Loading World...</h1>
+        </div>
+        <div id="pause-screen" class="modal hidden">
+            <div class="modal-content">
+                <h1>Paused</h1>
+                <p>Click to resume</p>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
