@@ -8,7 +8,7 @@ export class World {
         this.scene = scene;
         this.chunks = new Map();
         this.noise = new Noise();
-        this.renderDistance = 4;
+        this.renderDistance = 2; // Reduced for testing
     }
 
     getHeight(x, z) {
