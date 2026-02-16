@@ -8,7 +8,8 @@ export class Player {
         this.inventory = new Inventory();
         
         this.velocity = new THREE.Vector3();
-        this.position = new THREE.Vector3(8, 20, 8);
+        // Start player higher up to avoid immediate ground collision issues
+        this.position = new THREE.Vector3(8, 30, 8);
         this.height = 1.8;
         this.radius = 0.4;
         
