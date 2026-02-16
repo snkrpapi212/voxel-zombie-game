@@ -9,6 +9,11 @@ import { DayNightCycle } from './dayNight.js';
 class Game {
     constructor() {
         this.canvas = document.getElementById('canvas');
+        if (!this.canvas) {
+            console.error("Canvas element not found!");
+            return;
+        }
+        
         this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas, antialias: true });
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.renderer.setPixelRatio(window.devicePixelRatio);
@@ -36,10 +41,19 @@ class Game {
         });
 
         // Initial world generation
-        this.world.update(this.player.position);
+        try {
+            console.log("Generating initial chunks...");
+            this.world.update(this.player.position);
+            console.log("Initial chunks generated.");
+        } catch (error) {
+            console.error("Error during world generation:", error);
+        }
         
         // Hide loading screen
-        document.getElementById('loading-screen').classList.add('hidden');
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            loadingScreen.style.display = 'none';
+        }
         
         this.animate();
     }
@@ -64,4 +78,8 @@ class Game {
 }
 
 // Start game
-new Game();
+try {
+    new Game();
+} catch (e) {
+    console.error("Critical error starting game:", e);
+}
