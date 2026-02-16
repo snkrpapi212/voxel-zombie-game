@@ -65,7 +65,7 @@ class Game {
         const dt = Math.min((time - this.lastTime) / 1000, 0.1);
         this.lastTime = time;
 
-        if (this.controls.isLocked()) {
+        if (this.controls.isLocked() || this.forceUpdate) {
             this.player.update(dt);
             this.world.update(this.player.position);
             this.dayNight.update(dt);
@@ -79,7 +79,7 @@ class Game {
 
 // Start game
 try {
-    new Game();
+    window.game = new Game();
 } catch (e) {
     console.error("Critical error starting game:", e);
 }

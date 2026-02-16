@@ -32,19 +32,35 @@ A complete, 3D browser-based voxel survival game built with Three.js. This proje
 
 ## 🚀 Getting Started
 
-This game runs as a pure static web application. To avoid CORS issues with ES6 modules, you must serve it using a local web server.
+This game can be run in development mode or built for production using Node.js and Vite.
 
-### Option 1: Using Python
-```bash
-python -m http.server
-```
+### Prerequisites
 
-### Option 2: Using Node.js (npx)
-```bash
-npx serve
-```
+- Node.js (v16+)
+- npm
 
-Once running, open `http://localhost:8000` (or the provided port) in your browser.
+### Installation
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Start development server:
+   ```bash
+   npm run dev
+   ```
+   Open http://localhost:5173 to play.
+
+3. Build for production:
+   ```bash
+   npm run build
+   ```
+   The production files will be in the `dist/` directory.
+
+### Running with other servers
+
+If you prefer to run without Node.js tooling (using the source files directly), you must serve the files with a web server to avoid CORS issues with ES6 modules. Note that module resolution might require an import map or similar setup if not using a bundler.
 
 ## 📁 Folder Structure
 
