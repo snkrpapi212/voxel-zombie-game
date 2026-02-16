@@ -80,7 +80,8 @@ export class Chunk {
         const indices = [];
         
         const geometry = new THREE.BufferGeometry();
-        const material = new THREE.MeshStandardMaterial({ vertexColors: true });
+        // Use a basic material for testing to rule out lighting issues
+        const material = new THREE.MeshBasicMaterial({ vertexColors: true });
 
         let vertexCount = 0;
 
