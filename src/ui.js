@@ -49,6 +49,7 @@ export class UI {
     }
 
     updateInventory() {
+        if (!this.inventoryGrid) return;
         this.inventoryGrid.innerHTML = '';
         for (let i = 0; i < 27; i++) {
             const slot = document.createElement('div');
